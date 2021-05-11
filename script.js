@@ -67,3 +67,23 @@ function onClickEscClose(e) {
     modalImg.src = "";
     modalImg.alt = "";
 }
+
+/*const mark = createList(imagesArray);
+galleryRef.insertAdjacentHTML('afterbegin', mark);
+function createList(imagesArray) {
+    return imagesArray.map(({ preview, original, description }) => {
+        return `<li class="gallery__item">
+                     <a
+                      class="gallery__link"
+                     href="${original}"
+                 >
+                <img
+                 class="gallery__image"
+                    src="${preview}"
+                    data-source="${original}"
+             alt="${description}"
+             />
+             </a>
+            </li>`;
+    }).join('');
+}*/
