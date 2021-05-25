@@ -39,6 +39,7 @@ function onClickInImage(e) {
         return;
     }
     window.addEventListener('keydown', onClickEscClose);
+
     const imageRef = e.target;
     modalImg.src = imageRef.dataset.source;
     modalImg.alt = imageRef.alt;
