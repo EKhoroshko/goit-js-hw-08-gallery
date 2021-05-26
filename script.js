@@ -88,3 +88,5 @@ function createList(imagesArray) {
             </li>`;
     }).join('');
 }*/
+
+
