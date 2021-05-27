@@ -90,3 +90,28 @@ function createList(imagesArray) {
 }*/
 
 
+const imagesSrc = [];
+imagesArray.forEach(el => {
+    imagesSrc.push(el.original);
+});
+
+/*console.dir(imagesSrc[6]);*/
+
+document.addEventListener('keydown', (e) => {
+
+    let newIndex = imagesSrc.indexOf(modalImg.src);
+    if (e.key === 'ArrowLeft') {
+        newIndex -= 1;
+        if (newIndex === -1) {
+            newIndex = imagesSrc.length - 1;
+        }
+    }/*else if (e.key === 'ArrowRight') {
+        newIndex += 1;
+        if (newIndex === imagesSrc.length) {
+            newIndex = 0;
+        }
+    }*/
+    console.dir(imagesSrc[6]);
+
+    modalImg.src = imagesSrc[newIndex];
+});
