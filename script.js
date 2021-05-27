@@ -49,29 +49,9 @@ function onClickImgOpen(event) {
     modalImg.alt = imgEl.alt;
     modalEl.classList.add('is-open');
 
-
-    document.addEventListener('keydown', (e) => {
-
-        let newIndex = imagesSrc.indexOf(modalImg.src);
-        if (e.key === 'ArrowLeft') {
-            newIndex -= 1;
-            if (newIndex === -1) {
-                newIndex = imagesSrc.length - 1;
-            }
-        } else if (e.key === 'ArrowRight') {
-            newIndex += 1;
-            if (newIndex === imagesSrc.length) {
-                newIndex = 0;
-            }
-        }
-
-        modalImg.src = imagesSrc[newIndex];
-    });
-
 }
 
 function onClickCloseModal() {
-    window.removeEventListener('keydown', onClickEscClose);
     modalEl.classList.remove('is-open');
     modalImg.src = "";
     modalImg.alt = "";
@@ -86,13 +66,28 @@ function onClickOverlayClose(e) {
 }
 
 function onClickEscClose(e) {
-    if (e.key !== 'Escape') {
-        return;
+    if (e.key === 'Escape') {
+        onClickCloseModal();
     }
-    modalEl.classList.remove('is-open');
-    modalImg.src = "";
-    modalImg.alt = "";
 }
+
+document.addEventListener('keydown', (e) => {
+
+    let newIndex = imagesSrc.indexOf(modalImg.src);
+    if (e.key === 'ArrowLeft') {
+        newIndex -= 1;
+        if (newIndex === -1) {
+            newIndex = imagesSrc.length - 1;
+        }
+    } else if (e.key === 'ArrowRight') {
+        newIndex += 1;
+        if (newIndex === imagesSrc.length) {
+            newIndex = 0;
+        }
+    }
+    modalImg.src = imagesSrc[newIndex];
+});
+
 
 /*const mark = createList(imagesArray);
 galleryRef.insertAdjacentHTML('afterbegin', mark);
